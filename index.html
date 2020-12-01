@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/swiper-bundle.css">
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <header>
+        <span class="h-box">
+            <img src="img/home-6.png" alt="">
+            <a href="">我的</a>
+            <a href="">音乐馆</a>
+            <a href="">发现</a>
+            <img src="img/3@2x.png" alt="">
+            <img src="img/home-8.png" alt="">
+        </span>
+    </header>
+    <!--  轮播-->
+    <div class="swiper-container demo">
+        <div class="swiper-wrapper" id="lunbo">
+            <!-- <div class="swiper-slide">
+                <img src="img/home-1.png" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/home-2.jpg" alt="">
+            </div>
+            <div class="swiper-slide">
+                <img src="img/home-3.jpg" alt="">
+            </div> -->
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <!-- 轮播模板 -->
+    <script id="domm" type="text/x-dot-template">
+        {{~ it:value:index}}
+            <div class="swiper-slide">
+                <img src={{=value}} alt="">
+            </div>
+        {{~}}
+    </script>
+
+    <div class="list">
+        <ul>
+            <li>
+                <img src="img/4@2x.png" alt="">
+                <p>歌手</p>
+            </li>
+            <li>
+                <img src="img/5@2x.png" alt="">
+                <p>专辑</p>
+            </li>
+            <li>
+                <img src="img/6@2x.png" alt="">
+                <p>排行</p>
+            </li>
+            <li>
+                <img src="img/7@2x.png" alt="">
+                <p>电台</p>
+            </li>
+            <li>
+                <img src="img/8@2x.png" alt="">
+                <p>歌单</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="sing">
+        <div class="sing-new">
+            <h1>精选歌单</h1>
+            <div>
+                <a href="javascript:;">最新</a>
+                <a href="javascript:;">推荐</a>
+                <img src="img/home-7.png" alt="">
+            </div>
+        </div>
+        <div class="sing-list">
+            <ul class="mun">
+                <li>
+                    <img src="img/10@2x.png" alt="">
+                    <div>轻车上路，一路飙向爱的乌托邦</div>
+                    <p>安安静静做自己</p>
+                </li>
+                <li>
+                    <img src="img/11@2x.png" alt="">
+                    <div>无谓改变 生是见识</div>
+                    <p>安安静静做自己</p>
+                </li>
+                <li>
+                    <img src="img/12@2x.png" alt="">
+                    <div>劲爽热舞 给自己的耳朵充电</div>
+                    <p>安安静静做自己</p>
+                </li>
+                <li>
+                    <img src="img/10@2x.png" alt="">
+                    <div>轻车上路，一路飙向爱的乌托邦</div>
+                    <p>安安静静做自己</p>
+                </li>
+                <li>
+                    <img src="img/11@2x.png" alt="">
+                    <div>无谓改变 生是见识</div>
+                    <p>安安静静做自己</p>
+                </li>
+                <li>
+                    <img src="img/12@2x.png" alt="">
+                    <div>劲爽热舞 给自己的耳朵充电</div>
+                    <p>安安静静做自己</p>
+                </li>
+            </ul>
+
+
+            <ul id="list"></ul>
+
+            <ul id="lis"></ul>
+
+            <!-- 最新模板 -->
+            <script id="dom" type="text/x-dot-template">
+                {{~ it.musicList:value:index}}
+                    <li>
+                        <img src={{=value.imgurl}} alt="">
+                        <div>{{=value.info}}</div>
+                        <p>{{=value.title}}</p>
+                    </li>
+                {{~}}
+            </script>
+
+
+            <!-- 推荐模板 -->
+            <script id="dom2" type="text/x-dot-template">
+                {{~ it.musicList:value:index}}
+                    <li>
+                        <img src={{=value.imgurl}} alt="">
+                        <div>{{=value.info}}</div>
+                        <p>{{=value.title}}</p>
+                    </li>
+                {{~}}
+            </script>
+        </div>
+    </div>
+
+    <footer>
+        <div class="f-left">
+            <img src="img/50@2x.png" alt="" class="img4">
+            <div class="p">
+                <p>大鱼</p>
+                <p>横滑可以切换上下首哦</p>
+            </div>
+            <div class="position">
+                <p class="auto">
+                    大鱼
+                    <audio src="img/周深 - 大鱼.mp3" id="audio"></audio>
+                </p>
+                <p>
+                    Don't Wanna Know
+                    <audio src="img/Sam Tsui,Alex Blue - Don't Wanna Know／We Don't Talk Anymore.mp3"></audio>
+                </p>
+                <p>
+                    山鬼
+                    <audio src="img/Winky诗 - 山鬼.mp3"></audio>
+                </p>
+                <p>
+                    长生诀
+                    <audio src="img/西瓜JUN - 长生诀.mp3"></audio>
+                </p>
+                <p>
+                    时代を超える想い2
+                    <audio src="img/和田薫 - 时代を超える想い2.mp3"></audio>
+                </p>
+            </div>
+        </div>
+        <div class="f-right">
+            <div class="icon">
+                <img src="img/播放.png" alt="" class="img1">
+                <img src="img/播放 (1).png" alt="" class="img2">
+                <img src="img/home-6.png" alt="" class="img3">
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+    <script src="js/swiper-bundle.js"></script>
+    <script src="js/doT.min.js"></script>
+    <script src="js/zepto.js"></script>
+    <script>
+
+        // 播放
+        $('.img3').on('touchstart', function () {
+            $('.position').show();
+            $('.position p').on('touchstart', function () {
+                $(this).addClass('auto');
+                if (audio.play()) {
+                    audio.pause();
+                }
+                $('.p p:nth-of-type(1)').text($(this).text());
+                $(this).find('audio').attr('id', 'audio');
+                $(this).siblings().removeClass();
+                $(this).siblings().each(function (index, item) {
+                    $(item).find('audio').removeAttr('id');
+                });
+                audio.play();
+            })
+        })
+        $('#audio').on('canplay', function () {
+            $('.img1').on('tap', function () {
+                $(this).hide();
+                $('.img2').show();
+                $('.img4').css('animation', 'mymove 5s infinite linear');
+                audio.play();
+            })
+            $('.img2').on('tap', function () {
+                $(this).hide();
+                $('.img1').show();
+                $('.img4').css('animation', 'stop');
+                audio.pause();
+            })
+        })
+
+
+
+
+        //轮播
+        $.ajax({
+            url: 'http://192.168.1.94:3000/home',
+            type: 'get',
+            data: {
+                type: 'banner'
+            },
+            success: function (res) {
+                var data = res;
+                var dot_tem = doT.template($('#domm').text());
+                $('#lunbo').html(dot_tem(data.imglist));
+                new Swiper('.demo', {
+                    autoplay: {
+                        delay: 1000
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                    }
+                });
+            },
+            dataType: 'json'
+        })
+
+        // 最新
+        $('.sing-new a:nth-of-type(1)').on('tap', function () {
+            $('#lis').hide();
+            $('.mun').hide();
+            $('#list').show();
+            $.ajax({
+                url: 'http://192.168.1.94:3000/home',
+                type: 'get',
+                data: {
+                    type: 'new'
+                },
+                success: function (res) {
+                    var dot_new = doT.template($('#dom').text());
+                    $('#list').html(dot_new(res));
+                }
+            })
+        })
+
+        //推荐
+        $('.sing-new a:nth-of-type(2)').on('tap', function () {
+            $('#list').hide();
+            $('.mun').hide();
+            $('#lis').show();
+            $.ajax({
+                url: 'http://192.168.1.94:3000/home',
+                type: 'get',
+                data: {
+                    type: 'recommend'
+                },
+                success: function (res) {
+                    var dot_recom = doT.template($('#dom2').text());
+                    $('#lis').html(dot_recom(res));
+                }
+            })
+        })
+
+
+
+        $('#audio').on('ended', function () {
+            $('.img1').show();
+            $('.img2').hide();
+            audio.pause();
+        })
+
+    </script>
+</body>
+
+</html>

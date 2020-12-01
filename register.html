@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="h-left">
+            <img src="img/login-one.png" alt="">
+        </div>
+        <div class="h-right">
+            帮助
+        </div>
+    </header>
+    <div class="banner">
+        <img src="img/logo.png" alt="">
+    </div>
+    <form action="">
+        <div class="reg">
+            <input type="text" value="请输入手机号" id="phone">
+        </div>
+        <div class="pass">
+            <input type="text" name="" value="请输入验证码" id="code">
+            <div>
+                <p></p>
+                <img src="img/register-two.png" alt="" id="one">
+            </div>
+        </div>
+        <div class="password">
+            <input type="password" name="" value="请输入密码" id="passw">
+        </div>
+    </form>
+    <div class="posit">
+        <img src="img/login-three.png" alt="">
+    </div>
+    <p>注册即代表同意 迷音 服务条款和隐私条款</p>
+
+    <script src="js/zepto.js"></script>
+    <script>
+
+        var timer = null;
+        var num = 60;
+        function abc() {
+            $('.pass div').on('touchstart', function () {
+                $(this).find('img').hide();
+                $(this).off('touchstart')
+                timer = setInterval(function () {
+                    num -= 1;
+                    $('.pass div').find('p').show();
+                    $('.pass div').find('p').text(num + '秒后获取');
+                    if (num <= 0) {
+                        clearInterval(timer);
+                        num = 60;
+                        abc();
+                        $('.pass div').find('p').hide();
+                        $('.pass div').children('img').show();
+                    }
+                }, 1000);
+            })
+        }
+        abc();
+
+        $('.posit').on('touchstart', function () {
+            var phone_reg = /^1[3578]\d{9}$/;
+            var phone_val = $('#phone').val();
+            if (phone_reg.test(phone_val) == false) {
+                $('#phone').val('请重新输入')
+                $('#phone').css('color', 'red');
+                return false;
+            }
+            else {
+                $('#phone').css('color', 'green');
+            }
+
+            var pass_reg = /^\w{6,10}$/;
+            var pass_val = $('#passw').val();
+            if (pass_reg.test(pass_val) == false) {
+                $('#passw').val('请重新输入')
+                $('#passw').css('color', 'red');
+                return false;
+            }
+            else {
+                $('#passw').css('color', 'green');
+            }
+
+            $.ajax({
+                url: 'http://192.168.1.94:3000/users',
+                type: 'post',
+                data: {
+                    type: 'register',
+                    phone: $('#phone').val(),
+                    pass: $('#passw').val()
+                },
+                success: function (res) {
+                    console.log(res);
+                    timer=null;
+                    timer=setTimeout(function(){
+                        clearTimeout(timer);
+                        window.open('login.html')
+                    },3000);
+                }
+            })
+        })
+    </script>
+</body>
+
+</html>
